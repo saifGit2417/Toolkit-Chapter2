@@ -9,6 +9,7 @@ const BonusComponent = () => {
     const dispatch = useDispatch()
     return (
         <div >
+            {/* ///chapter 2 till 2:25 hr */}
             <h1>BonusComponent</h1>
             <h1>Total Points: {initialBonus}</h1>
             <div style={{ textAlign: "center", display: "flex", alignItems: "centre", justifyContent: "center" }}>
