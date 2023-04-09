@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { Button, TextField } from '@mui/material'
 import { useSelector, useDispatch } from 'react-redux'
-import { decrement, increment, incrementByAmount } from '../Actions/actions'
+import { decrement, getUserAccount, increment, incrementByAmount } from '../Actions/actions'
 
 
 
@@ -44,6 +44,15 @@ const AcountComponents = () => {
                     onClick={() => { dispatch(incrementByAmount(inputToNumber)) }}
                 >
                     Increment By {inputValue} +
+                </Button>
+                <Button
+                    variant="contained"
+                    color="success"
+                    sx={{ margin: 5 }}
+
+                    onClick={() => { dispatch(getUserAccount(1)) }}
+                >
+                    init acount {inputValue} +
                 </Button>
             </div>
         </div>

@@ -6,7 +6,7 @@ import reportWebVitals from './reportWebVitals';
 import { createStore, combineReducers, applyMiddleware } from 'redux'
 import { accountReducer } from './Reducers/Acount';
 import { bonusReducer } from './Reducers/Bonus';
-import {Provider} from 'react-redux'
+import { Provider } from 'react-redux'
 import logger from 'redux-logger'
 import thunk from 'redux-thunk'
 
@@ -16,7 +16,7 @@ const store = createStore(
     account: accountReducer,
     bonus: bonusReducer
   }),
-  // applyMiddleware(logger.default, thunk.default)
+  applyMiddleware(logger, thunk)
 );
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
