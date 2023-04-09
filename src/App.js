@@ -14,6 +14,7 @@ function App() {
 
   return (
     <div className="App">
+      {/* tried to learn toolkit but couldnt understand a single word */}
       <div style={{ width: "70vw", height: "33vh", border: "2px solid black", marginLeft: "15vw" }}>
         {/* {acount.pending ? <p>....loading</p> : <h1>Current Amout :{initialAmount} </h1>} */}
         <h1>Current Amout :{initialAmount} </h1>
