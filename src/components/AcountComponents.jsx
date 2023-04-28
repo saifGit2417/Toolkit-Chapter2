@@ -1,32 +1,34 @@
 import React, { useState } from 'react'
 import { Button, TextField } from '@mui/material'
 import { useSelector, useDispatch } from 'react-redux'
-import { decrement, getUserAccount, increment, incrementByAmount } from '../Actions/actions'
-
-
-
+import { decrement, getUserAcount, increment, incrementByAmount } from '../Slices/acountSlice'
 const AcountComponents = () => {
-    const initialAmount = useSelector(state => state.account.amount)
-    const dispatch = useDispatch()
+
+    const dispatchActions = useDispatch()
+    const amount = useSelector(state => state.acount.amount)
+
     const [inputValue, setInputValue] = useState(null)
+    const [userId,setUserId]=useState(null)
     const inputToNumber = parseInt(inputValue)
+    const getUserId=parseInt(userId)
     return (
         <div style={{ textAlign: "centre" }}>
             <h1>AcountComponents</h1>
-            <h1>Amount {initialAmount} : </h1>
+            <h1>Amount {amount} : </h1>
             <div style={{ textAlign: "center", display: "flex", alignItems: "centre", justifyContent: "center" }}>
                 <Button
                     variant="contained"
                     color="success"
                     sx={{ margin: 5 }}
-                    onClick={() => { dispatch(increment()) }}
+                    onClick={() => { dispatchActions(increment()) }}
                 >
                     Increment +
                 </Button>
                 <Button
                     variant="contained"
                     sx={{ margin: 5 }}
-                    onClick={() => { dispatch(decrement()) }}
+                    onClick={() => { dispatchActions(decrement()) }}
+
                 >
                     Decrement -
                 </Button>
@@ -39,20 +41,25 @@ const AcountComponents = () => {
                 <Button
                     variant="contained"
                     color="success"
-                    sx={{ margin: 5 }}
+                    sx={{ margin: 5 }} z
+                    onClick={() => { dispatchActions(incrementByAmount(inputToNumber)) }}
 
-                    onClick={() => { dispatch(incrementByAmount(inputToNumber)) }}
                 >
                     Increment By {inputValue} +
                 </Button>
+                <TextField
+                    type='number'
+                    sx={{ margin: 5 }}
+                    value={inputValue}
+                    onChange={(e) => { setUserId(e.target.value) }}
+                />
                 <Button
                     variant="contained"
                     color="success"
                     sx={{ margin: 5 }}
-
-                    onClick={() => { dispatch(getUserAccount(1)) }}
+                    onClick={() => { dispatchActions(getUserAcount(getUserId)) }}
                 >
-                    init acount {inputValue} +
+                 get user acount {userId}
                 </Button>
             </div>
         </div>
