@@ -5,7 +5,6 @@ import {increment, incrementByAmount} from '../Reducers/reawrdReducer'
 const Reward = () => {
     const initialReward = useSelector(state => state.reward.rewards)
     const dispatchActions=useDispatch()
-    console.log(initialReward)
 
     return (
         <div >

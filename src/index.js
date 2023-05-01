@@ -3,18 +3,22 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import {configureStore} from '@reduxjs/toolkit';
+import { configureStore } from '@reduxjs/toolkit';
 import acountReducer from './Slices/acountSlice'
 import bonusReducer from './Slices/bonusSlice'
 import { Provider } from 'react-redux'
 import rewardReducer from './Reducers/reawrdReducer';
+import { adminApi } from './api/adminSlice';
 
-const reduxStore=configureStore({
-reducer:{
+const reduxStore = configureStore({
+  reducer: {
     acount: acountReducer,
-    bonus:bonusReducer,
-    reward:rewardReducer
-}
+    bonus: bonusReducer,
+    reward: rewardReducer,
+    [adminApi.reducerPath]: adminApi.reducer
+  },
+  middleware: (getDefaultMiddleware) =>
+    getDefaultMiddleware().concat(adminApi.middleware)
 })
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
