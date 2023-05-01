@@ -11,8 +11,7 @@ function App() {
 
   return (
     <div className="App" style={{ width: "100%" }}>
-      {/* till 3:17 hr
-       */}
+     {/* Chapter 3 has been completed */}
       <div style={{ width: "70vw", height: "33vh", border: "2px solid black", marginLeft: "15vw" }}>
         <h1>Current Amount:{initialAmount} </h1>
         <h1>Total Bonus:{initialPoints} </h1>
